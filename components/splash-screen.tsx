@@ -25,173 +25,224 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #F5E6D3 0%, #FFF8F0 50%, #FFE5D9 100%)",
+            background: "linear-gradient(135deg, #FFF9F0 0%, #FFF5EB 50%, #FFEEE0 100%)",
           }}
         >
+          {/* Subtle rotating rangoli in background */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{
-              duration: 20,
+              duration: 30,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
-            className="absolute inset-0 flex items-center justify-center opacity-20"
+            className="absolute inset-0 flex items-center justify-center opacity-8"
           >
             <Image
               src="/images/image.png"
               alt="Rangoli Pattern"
               width={800}
               height={800}
-              className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] object-contain"
+              className="w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] object-contain"
             />
           </motion.div>
 
-          {/* Floating traditional motifs */}
+          {/* Elegant floating ornaments */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.15 }}
-            transition={{ duration: 1 }}
+            animate={{ opacity: 0.12 }}
+            transition={{ duration: 1.5 }}
             className="absolute inset-0 pointer-events-none"
           >
-            {[...Array(8)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
                 animate={{
-                  y: [0, -30, 0],
-                  x: [0, Math.sin(i) * 20, 0],
-                  rotate: [0, 5, 0],
+                  y: [0, -20, 0],
+                  x: [0, Math.sin(i) * 15, 0],
                 }}
                 transition={{
-                  duration: 4 + i * 0.5,
+                  duration: 5 + i * 0.8,
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "easeInOut",
-                  delay: i * 0.3,
+                  delay: i * 0.5,
                 }}
-                className="absolute text-6xl"
+                className="absolute text-5xl"
                 style={{
-                  left: `${i * 12 + 10}%`,
-                  top: `${(i % 2) * 40 + 20}%`,
-                  color: "#D4AF37",
-                  opacity: 0.3,
+                  left: `${i * 15 + 10}%`,
+                  top: `${(i % 2) * 50 + 15}%`,
+                  color: "#C9A961",
+                  opacity: 0.4,
                 }}
               >
-                {i % 3 === 0 ? "✿" : i % 3 === 1 ? "❀" : "◉"}
+                {i % 2 === 0 ? "✦" : "❋"}
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="relative z-10 text-center space-y-8 px-8 max-w-6xl">
+          {/* Radial glow effect */}
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%)",
+            }}
+          />
+
+          <div className="relative z-10 text-center space-y-6 px-8 max-w-6xl">
+            {/* Logo */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.5, opacity: 0, y: 20 }}
               animate={{
                 scale: 1,
                 opacity: 1,
+                y: 0,
               }}
-              transition={{ duration: 0.8, type: "spring", stiffness: 100, delay: 0.3 }}
-              className="relative w-48 h-48 mx-auto"
+              transition={{ 
+                duration: 1, 
+                type: "spring", 
+                stiffness: 80,
+                damping: 15,
+                delay: 0.2 
+              }}
+              className="relative w-40 h-40 mx-auto mb-4"
             >
-              <Image
-                src="/logo.png"
-                alt="Style Era Logo"
-                width={192}
-                height={192}
-                className="w-full h-full object-contain drop-shadow-2xl"
-              />
+              <motion.div
+                animate={{
+                  boxShadow: [
+                    "0 0 20px rgba(212, 175, 55, 0.3)",
+                    "0 0 40px rgba(212, 175, 55, 0.5)",
+                    "0 0 20px rgba(212, 175, 55, 0.3)",
+                  ],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+                className="w-full h-full rounded-full"
+              >
+                <Image
+                  src="/logo.png"
+                  alt="Style Era Logo"
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
             </motion.div>
 
+            {/* Main title with refined styling */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.8 }}
-              className="space-y-4 relative"
+              transition={{ duration: 1.2, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              className="space-y-3 relative"
             >
               <div className="relative inline-block">
                 <motion.h1
-                  className="font-serif text-7xl md:text-9xl font-black tracking-wider"
+                  className="font-serif text-6xl md:text-8xl font-bold tracking-widest relative"
                   style={{
-                    background: "linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    letterSpacing: "0.15em",
-                    textShadow: "0 0 40px rgba(212, 175, 55, 0.3)",
-                  }}
-                  animate={{
-                    filter: [
-                      "drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))",
-                      "drop-shadow(0 0 20px rgba(212, 175, 55, 0.9))",
-                      "drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))",
-                    ],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
+                    color: "#8B6F47",
+                    letterSpacing: "0.25em",
+                    fontWeight: 400,
                   }}
                 >
-                  STYLE ERA
+                  <motion.span
+                    className="inline-block"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                  >
+                    STYLE
+                  </motion.span>
+                  <span className="inline-block mx-4 text-5xl md:text-7xl" style={{ color: "#D4AF37" }}>
+                    ✦
+                  </span>
+                  <motion.span
+                    className="inline-block"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1, duration: 0.6 }}
+                  >
+                    ERA
+                  </motion.span>
                 </motion.h1>
+                
+                {/* Subtle underline accent */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 1.2, delay: 1.3, ease: "easeOut" }}
+                  className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-px"
+                  style={{
+                    width: "80%",
+                    background: "linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%)",
+                  }}
+                />
               </div>
 
+              {/* Elegant divider */}
               <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1, delay: 1.2 }}
-                className="h-1 mx-auto"
-                style={{
-                  width: "400px",
-                  maxWidth: "90%",
-                  background: "linear-gradient(90deg, transparent 0%, #D4AF37 20%, #D4AF37 80%, transparent 100%)",
-                  filter: "blur(1px)",
-                }}
-              />
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 1, delay: 1.4 }}
+                className="flex items-center justify-center gap-3 py-4"
+              >
+                <div className="w-12 h-px" style={{ background: "linear-gradient(90deg, transparent, #C9A961)" }} />
+                <div className="text-lg" style={{ color: "#D4AF37" }}>❖</div>
+                <div className="w-12 h-px" style={{ background: "linear-gradient(90deg, #C9A961, transparent)" }} />
+              </motion.div>
 
+              {/* Subtitle */}
               <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5, duration: 0.8 }}
-                className="text-2xl md:text-3xl font-light tracking-[0.3em] uppercase"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.7, duration: 1 }}
+                className="text-xl md:text-2xl font-serif italic tracking-wider"
                 style={{
                   color: "#8B1538",
-                  fontFamily: "serif",
+                  fontWeight: 300,
                 }}
               >
                 by Shreelusoni
               </motion.p>
             </motion.div>
 
+            {/* Loading indicator */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.8 }}
-              className="flex justify-center items-center gap-2 pt-8"
+              transition={{ delay: 2 }}
+              className="flex justify-center items-center gap-2.5 pt-6"
             >
               {[0, 1, 2, 3, 4].map((i) => (
                 <motion.div
                   key={i}
                   animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.5, 1, 0.5],
+                    scale: [1, 1.5, 1],
+                    opacity: [0.4, 1, 0.4],
                   }}
                   transition={{
-                    delay: i * 0.15,
+                    delay: i * 0.12,
                     duration: 1.5,
                     repeat: Number.POSITIVE_INFINITY,
                     ease: "easeInOut",
                   }}
-                  className="w-2 h-2 rounded-full"
+                  className="w-1.5 h-1.5 rounded-full"
                   style={{ backgroundColor: "#D4AF37" }}
                 />
               ))}
             </motion.div>
 
+            {/* Tagline */}
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ delay: 2, duration: 1 }}
-              className="text-sm tracking-widest"
-              style={{ color: "#8B1538" }}
+              animate={{ opacity: 0.7 }}
+              transition={{ delay: 2.2, duration: 1.2 }}
+              className="text-xs md:text-sm tracking-[0.3em] uppercase font-light pt-2"
+              style={{ color: "#6B5D4F" }}
             >
-              HAND-PAINTED • ARTISAN CRAFTED • HERITAGE
+              Hand-Painted • Artisan Crafted • Heritage
             </motion.p>
           </div>
         </motion.div>

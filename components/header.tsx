@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { ShoppingCart, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
@@ -35,24 +35,18 @@ export default function Header() {
         </div>
 
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#mens" className="text-foreground hover:text-accent transition-colors font-medium">
+          <a href="/mens" className="text-foreground hover:text-accent transition-colors font-medium">
             Men's Collection
           </a>
-          <a href="#womens" className="text-foreground hover:text-accent transition-colors font-medium">
+          <a href="/womens" className="text-foreground hover:text-accent transition-colors font-medium">
             Women's Collection
           </a>
-          <a href="#kids" className="text-foreground hover:text-accent transition-colors font-medium">
+          <a href="/kids" className="text-foreground hover:text-accent transition-colors font-medium">
             Kids' Collection
           </a>
         </nav>
 
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="relative">
-            <ShoppingCart className="w-5 h-5" />
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground rounded-full text-xs flex items-center justify-center">
-              0
-            </span>
-          </Button>
+        <div className="flex items-center">
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>

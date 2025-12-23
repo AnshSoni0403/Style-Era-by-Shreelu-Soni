@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Mail } from "lucide-react"
+import { Facebook, Instagram, Twitter, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Section */}
           <div className="space-y-4">
-            <Image src="/logo.png" alt="Style Era Logo" width={80} height={80} className="brightness-0 invert" />
+            <Image src="/logo.png" alt="Style Era Logo" width={80} height={80} />
             <p className="text-primary-foreground/80 leading-relaxed">
               Celebrating the art of tradition through hand-painted ethnic wear and luxury fashion.
             </p>
@@ -24,17 +24,17 @@ export default function Footer() {
             <h4 className="font-serif text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#mens" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="/mens" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Men's Collection
                 </a>
               </li>
               <li>
-                <a href="#womens" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="/womens" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Women's Collection
                 </a>
               </li>
               <li>
-                <a href="#kids" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="/kids" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Kids' Collection
                 </a>
               </li>
@@ -55,31 +55,38 @@ export default function Footer() {
                   Contact Us
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Shipping & Returns
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Size Guide
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   FAQs
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
-          {/* Newsletter */}
+         
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Stay Connected</h4>
-            <p className="text-primary-foreground/80 mb-4 text-sm leading-relaxed">
-              Subscribe to receive updates on new collections and exclusive offers.
-            </p>
-            <div className="flex gap-2 mb-4">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-primary-foreground/80 text-sm">
+                <Phone className="w-4 h-4" />
+                <span>+91 73837 48103</span>
+              </div>
+              <div className="flex items-center gap-2 text-primary-foreground/80 text-sm mb-4">
+                <Mail className="w-4 h-4" />
+                <span>styleera23.24@gmail.com</span>
+              </div>
+            </div>
+            {/* <div className="flex gap-2 mb-4">
               <Input
                 type="email"
                 placeholder="Enter your email"
@@ -88,7 +95,7 @@ export default function Footer() {
               <Button variant="secondary" size="icon">
                 <Mail className="w-4 h-4" />
               </Button>
-            </div>
+            </div> */}
             <div className="flex gap-3">
               <Button
                 variant="ghost"

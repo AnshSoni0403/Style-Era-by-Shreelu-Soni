@@ -12,60 +12,33 @@ import Link from "next/link"
 const allKidsProducts = [
   {
     id: 9,
-    name: "Little Prince Kurta",
+    name: "Radhe Rani",
     price: 2499,
-    image: "/kids-kurta-boy-traditional-ethnic-wear.jpg",
-    description: "Comfortable cotton kurta with playful prints",
+    image: "/images/Kids/5.jpeg",
+    description: "Our Princess Styled in Radha Rani outfit",
   },
   {
     id: 10,
     name: "Princess Lehenga",
     price: 3999,
-    image: "/kids-lehenga-girl-festive-wear.jpg",
+    image: "/images/Kids/2.png",
     description: "Adorable lehenga with flower motifs",
   },
   {
     id: 11,
-    name: "Festive Dhoti Set",
+    name: "Simple Comfort Set",
     price: 2799,
-    image: "/kids-dhoti-kurta-set-traditional.jpg",
-    description: "Traditional dhoti set for special occasions",
+    image: "/images/Kids/3.png",
+    description: "Comfortable and stylish traditional set",
   },
   {
     id: 12,
     name: "Ethnic Gown",
     price: 2999,
-    image: "/kids-ethnic-gown-dress-traditional.jpg",
+    image: "/images/Kids/4.png",
     description: "Flowing ethnic gown with vibrant colors",
   },
-  {
-    id: 21,
-    name: "Bandhani Print Kurta",
-    price: 1999,
-    image: "/kids-bandhani-kurta-traditional.jpg",
-    description: "Colorful bandhani print for festivals",
-  },
-  {
-    id: 22,
-    name: "Mirror Work Chaniya Choli",
-    price: 3499,
-    image: "/kids-chaniya-choli-mirror-work.jpg",
-    description: "Sparkling chaniya choli with mirror embellishments",
-  },
-  {
-    id: 23,
-    name: "Embroidered Nehru Jacket",
-    price: 2299,
-    image: "/kids-nehru-jacket-embroidered.jpg",
-    description: "Stylish Nehru jacket for young gentlemen",
-  },
-  {
-    id: 24,
-    name: "Floral Print Salwar Set",
-    price: 2599,
-    image: "/kids-salwar-set-floral-print.jpg",
-    description: "Comfortable salwar with bright floral patterns",
-  },
+  
 ]
 
 export default function KidsCollectionPage() {
@@ -114,7 +87,7 @@ export default function KidsCollectionPage() {
               initial={{ x: -100, opacity: 0, rotateY: -20 }}
               animate={{ x: 0, opacity: 1, rotateY: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full lg:w-[350px] h-[500px] bg-gradient-to-br from-[#C4A57B] to-[#A0826D] rounded-3xl shadow-2xl overflow-hidden"
+              className="relative w-full lg:w-[350px] h-[500px] bg-gradient-to-br from-[#FFE4EC] to-[#D16C8A] rounded-3xl shadow-2xl overflow-hidden"
               style={{ transform: "perspective(1000px)" }}
             >
               <div className="absolute inset-0 p-8 flex flex-col justify-between">
@@ -124,7 +97,7 @@ export default function KidsCollectionPage() {
                 </div>
 
                 <div className="relative h-64 -mx-8 -mb-8">
-                  <img src="/cute-indian-kid-in-traditional-ethnic-wear-kurta.jpg" alt="Kids Fashion" className="w-full h-full object-cover" />
+                  <img src="/images/Kids/7.png" alt="Kids Fashion" className="w-full h-full object-cover" />
                 </div>
 
                 <motion.div
@@ -140,9 +113,9 @@ export default function KidsCollectionPage() {
                       transform: "rotate(-2deg)",
                     }}
                   >
-                    VIBRANT
+                  
                     <br />
-                    <span className="text-4xl">TRADITION</span>
+                    {/* <span className="text-4xl">LEKHAN</span> */}
                   </h1>
                 </motion.div>
               </div>
@@ -153,7 +126,7 @@ export default function KidsCollectionPage() {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-full lg:w-[380px] h-[550px] bg-gradient-to-br from-[#A0826D] via-[#8B6F5C] to-[#6B5444] rounded-3xl shadow-2xl overflow-hidden"
+              className="relative w-full lg:w-[380px] h-[550px] bg-gradient-to-br from-[#F7B7C6]  to-[#B64E6F] rounded-3xl shadow-2xl overflow-hidden"
             >
               <div className="absolute top-8 left-8 right-8 flex justify-between items-start">
                 <div className="text-accent">
@@ -176,22 +149,20 @@ export default function KidsCollectionPage() {
                   STYLES
                 </h2>
                 <div className="flex items-center gap-4 text-accent">
-                  <span className="text-3xl font-bold">₹1,999</span>
-                  <span className="text-lg line-through opacity-60">₹2,999</span>
+                  
+                 
                 </div>
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                   className="mt-6 inline-block"
                 >
-                  <div className="bg-accent text-primary px-6 py-2 rounded-full text-sm font-bold">
-                    LIMITED TIME OFFER
-                  </div>
+                  
                 </motion.div>
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 h-64">
-                <img src="/indian-child-in-colorful-traditional-dress-ethnic-.jpg" alt="Featured Style" className="w-full h-full object-cover" />
+                <img src="/images/Kids/8.png" alt="Featured Style" className="w-full h-full object-cover" />
               </div>
 
               {/* Small category previews */}
@@ -206,7 +177,7 @@ export default function KidsCollectionPage() {
                     className="w-16 h-20 rounded-xl bg-[#E8D5C4]/30 backdrop-blur-sm border border-accent/30 overflow-hidden cursor-pointer"
                   >
                     <img
-                      src={`/kids-ethnic-wear-style-.jpg?key=t001a&height=80&width=64&query=kids ethnic wear style ${i}`}
+                      src={`/images/kids/10.png?key=t001a&height=80&width=64&query=kids ethnic wear style ${i}`}
                       alt={`Style ${i}`}
                       className="w-full h-full object-cover"
                     />

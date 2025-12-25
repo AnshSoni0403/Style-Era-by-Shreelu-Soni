@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -138,6 +138,7 @@ export default function MensCollectionPage() {
 
   const [activeFestival, setActiveFestival] = useState(0)
   const [direction, setDirection] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -358,17 +359,6 @@ export default function MensCollectionPage() {
               animate="center"
               exit="exit"
               transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipe = Math.abs(offset.x) * velocity.x
-                if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1)
-                } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1)
-                }
-              }}
               className="space-y-12"
             >
               <div className="text-center space-y-4">
@@ -379,7 +369,10 @@ export default function MensCollectionPage() {
               </div>
 
               <div className="relative">
-                <div className="overflow-hidden px-4">
+                <div
+                  className="overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  ref={carouselRef}
+                >
                   <motion.div className="flex gap-6 pb-8" initial={{ x: 0 }}>
                     {currentFestival.products.map((product, index) => (
                       <motion.div key={product.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="flex-shrink-0 w-64">
@@ -403,10 +396,10 @@ export default function MensCollectionPage() {
                   </motion.div>
                 </div>
 
-                <button onClick={() => paginate(-1)} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md p-4 rounded-full transition-all duration-300 hover:scale-110">
+                <button onClick={() => carouselRef.current?.scrollBy({ left: -320, behavior: 'smooth' })} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md p-4 rounded-full transition-all duration-300 hover:scale-110">
                   <ChevronLeft className="w-6 h-6 text-white" />
                 </button>
-                <button onClick={() => paginate(1)} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md p-4 rounded-full transition-all duration-300 hover:scale-110">
+                <button onClick={() => carouselRef.current?.scrollBy({ left: 320, behavior: 'smooth' })} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md p-4 rounded-full transition-all duration-300 hover:scale-110">
                   <ChevronRight className="w-6 h-6 text-white" />
                 </button>
               </div>

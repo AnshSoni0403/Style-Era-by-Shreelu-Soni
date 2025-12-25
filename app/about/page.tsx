@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Heart, Sparkles, Leaf, Users } from "lucide-react"
+import Navbar from '../../components/header'
 
 export default function AboutPage() {
   const fadeInUp = {
@@ -26,7 +27,9 @@ export default function AboutPage() {
   }
 
   return (
+    
     <main className="bg-background text-foreground">
+      <Navbar/>
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-4 py-20">
         <div className="max-w-7xl w-full">
@@ -78,7 +81,7 @@ export default function AboutPage() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/images/image.png"
+                  src="/images/about.jpeg"
                   alt="Style Era founder Shreelu Soni with festive attire"
                   className="w-full h-auto"
                 />

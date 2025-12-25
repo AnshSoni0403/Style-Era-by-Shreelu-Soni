@@ -412,8 +412,10 @@ export default function WomensCollectionPage() {
         </div>
       </section>
 
+
       <RangoliDivider />
 
+      {/* Our Collections - Featured 8 products (restored) */}
       <section className="py-20 px-4 relative">
         <div className="container mx-auto">
           <motion.div
@@ -423,35 +425,12 @@ export default function WomensCollectionPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            {/* <h2 className="font-serif text-5xl font-bold text-foreground mb-4">Our Collections</h2>
+            <h2 className="font-serif text-5xl font-bold text-foreground mb-4">Our Collections</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Explore our handpicked selection of traditional and contemporary ethnic wear
-            </p> */}
+            </p>
             <div className="w-24 h-1 bg-accent mx-auto mt-6" />
           </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {[
-              { name: "Sarees", icon: "🥻", count: "50+" },
-              { name: "Lehengas", icon: "👘", count: "35+" },
-              { name: "Anarkalis", icon: "👗", count: "40+" },
-              { name: "Suits", icon: "🧥", count: "60+" },
-            ].map((cat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -10, scale: 1.05 }}
-                className="bg-card rounded-3xl p-8 shadow-lg border-2 border-muted hover:border-accent/50 transition-all cursor-pointer text-center"
-              >
-                <div className="text-5xl mb-4">{cat.icon}</div>
-                <h3 className="font-serif text-xl font-bold mb-2">{cat.name}</h3>
-                <p className="text-muted-foreground text-sm">{cat.count} Designs</p>
-              </motion.div>
-            ))}
-          </div>
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -484,7 +463,144 @@ export default function WomensCollectionPage() {
         </div>
       </section>
 
-      <RangoliDivider />
+      
+      {/* Baby Shower Section */}
+      <section className="py-20 px-4 relative bg-gradient-to-b from-background via-[#FFF5F0] to-background">
+        <div className="container mx-auto">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, type: "spring" }}
+              className="inline-flex items-center gap-2 bg-pink-100 text-pink-600 rounded-full px-6 py-3 mb-6"
+            >
+              <Heart className="w-4 h-4" />
+              <span className="text-sm font-semibold tracking-wide">SACRED CELEBRATION</span>
+            </motion.div>
+
+            <h2 className="font-serif text-5xl md:text-6xl font-bold text-foreground mb-6">
+              Baby Shower <span className="text-pink-500">Blessings</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Celebrate the divine journey of motherhood with sacred traditions and blessed moments
+            </p>
+            <div className="w-24 h-1 bg-pink-400 mx-auto mt-8" />
+          </motion.div>
+
+          {/* Two Images with Shloks */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+            {/* Left Image with Shlok */}
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              {/* Image */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-200 to-rose-200 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <motion.div
+                  whileHover={{ scale: 1.02, rotate: -2 }}
+                  className="relative rounded-3xl overflow-hidden shadow-2xl"
+                >
+                  <img
+                    src="/images/Women's/13.png"
+                    alt="Baby Shower Celebration - Mother and Child"
+                    className="w-full h-200 object-cover"
+                  />
+                </motion.div>
+              </div>
+
+              {/* Sanskrit Shlok Card */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 border-2 border-pink-200 shadow-lg"
+              >
+                <div className="flex items-start gap-4">
+                  <Sparkles className="w-6 h-6 text-pink-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-2xl font-serif text-pink-700 mb-3 italic leading-relaxed">
+                      "या देवी सर्वभूतेषु माता रूपेण संस्थिता"
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      <span className="font-semibold text-foreground">Sanskrit Translation:</span> "The Goddess who
+                      resides in all beings in the form of a mother"
+                    </p>
+                    <p className="text-sm text-pink-600 italic">
+                      This shlok celebrates the divine feminine energy of motherhood, the most sacred form of creation
+                      and nurturing.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Image with Shlok */}
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6"
+            >
+              {/* Image */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-200 to-orange-200 rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <motion.div
+                  whileHover={{ scale: 1.02, rotate: 2 }}
+                  className="relative rounded-3xl overflow-hidden shadow-2xl"
+                >
+                  <img
+                    src="/images/Women's/14.png"
+                    alt="Baby Shower Rituals - Celebration with Family"
+                    className="w-full h-200 object-cover"
+                  />
+                </motion.div>
+              </div>
+
+              {/* Sanskrit Shlok Card */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border-2 border-amber-200 shadow-lg"
+              >
+                <div className="flex items-start gap-4">
+                  <Heart className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" fill="currentColor" />
+                  <div>
+                    <p className="text-2xl font-serif text-amber-700 mb-3 italic leading-relaxed">
+                      "सुभद्रे! भव्या भवनु मुकुट रत्नं नवजातकम्"
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      <span className="font-semibold text-foreground">Sanskrit Translation:</span> "Blessed one! May the
+                      newborn be as precious as a jewel in the crown"
+                    </p>
+                    <p className="text-sm text-amber-700 italic">
+                      A blessing for the divine protection and prosperity of the unborn child and the mother's wellbeing
+                      throughout this sacred journey.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Artisan Story Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/50">

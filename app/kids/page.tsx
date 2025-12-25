@@ -264,13 +264,7 @@ export default function KidsCollectionPage() {
           </div>
         </div>
 
-        <Link
-          href="/"
-          className="absolute top-8 left-8 z-20 flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-        >
-          <ChevronLeft className="w-6 h-6" />
-          <span className="font-semibold">Back to Home</span>
-        </Link>
+       
       </section>
 
       <RangoliDivider />

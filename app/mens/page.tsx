@@ -1,12 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ProductCard from "@/components/product-card"
 import RangoliDivider from "@/components/rangoli-divider"
-import { ChevronLeft } from "lucide-react"
+import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 
 const allMensProducts = [
@@ -68,8 +68,110 @@ const allMensProducts = [
   },
 ]
 
+// Deity icon components (simple emoji placeholders; swap with SVGs/images anytime)
+const KrishnaIcon = () => (
+  <span role="img" aria-label="Lord Krishna" className="inline-block">🦚</span>
+)
+const GaneshIcon = () => (
+  <span role="img" aria-label="Lord Ganesh" className="inline-block">🕉️</span>
+)
+const AmbaIcon = () => (
+  <span role="img" aria-label="Goddess Amba" className="inline-block">🪔</span>
+)
+
+const festivalsData = [
+  {
+    id: "janmashtami",
+    name: "Janmashtami Collection",
+    theme: "कृष्णाय वासुदेवाय नमः",
+    description: "Celebrate Krishna's divine presence with our enchanting Janmashthmi collection",
+    bgGradient: "from-blue-900 via-indigo-800 to-purple-900",
+    accentColor: "text-yellow-300",
+    icon: <KrishnaIcon />,
+    deityImage: "/images/Mens/Shreenathji.png",
+    products: [
+      { id: 1, name: "Shreenathji Kurta", price: "white", image: "/images/Mens/12.png" },
+      { id: 2, name: "Pink Krishna Kurta", price: 5999, image: "/images/Mens/21.png" },
+      { id: 3, name: "Bal Leela Kurta", price: 6499, image: "/images/Mens/22.png" },
+      { id: 4, name: "Chakra Golden Kurta", price: 7999, image: "/images/Mens/23.png" },
+      { id: 5, name: "Flute Pattern Kurta", price: 5799, image: "/images/Mens/18.png" },
+    ],
+  },
+  {
+    id: "ganesh-chaturthi",
+    name: "Ganesh Chaturthi",
+    theme: "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः",
+    description: "Start your journey with blessings in our vibrant Ganesh Chaturthi collection",
+    bgGradient: "from-orange-600 via-red-600 to-pink-600",
+    accentColor: "text-yellow-200",
+    icon: <GaneshIcon />,
+    deityImage: "/images/Mens/Ganeshji.png",
+    products: [
+      { id: 6, name: "Glory Kurta", price: 5299, image: "/images/Mens/25.jpeg" },
+      { id: 7, name: "Ganesha Painted Kurta", price: 6299, image: "/images/Mens/4.png" },
+      { id: 8, name: "Minimal White Kurta", price: 5899, image: "/images/Mens/1.png" },
+      { id: 9, name: "Cute Bal Ganesha", price: 7499, image: "/images/Mens/26.jpeg" },
+      { id: 10, name: "Safron Kurta", price: 6799, image: "/images/Mens/19.png" },
+    ],
+  },
+  {
+    id: "navratri",
+    name: "Navratri Collection",
+    theme: "या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता",
+    description: "Dance through the festival in our vibrant multi-hued collection",
+    bgGradient: "from-pink-600 via-purple-600 to-indigo-600",
+    accentColor: "text-yellow-300",
+    icon: <AmbaIcon />,
+    deityImage: "/images/Mens/Durga.png",
+    products: [
+      { id: 11, name: "Godess Durga", price: 4999, image: "/images/Mens/7.png" },
+      { id: 12, name: "Garba Special Set", price: 6999, image: "/images/Mens/25.png" },
+      { id: 13, name: "Couple Dandiya Kurta", price: 7499, image: "/images/Mens/27.png" },
+      { id: 14, name: "Dusserra Special Kurta", price: 5799, image: "/images/Mens/28.png" },
+      { id: 15, name: "Gokul no Govaliyo", price: 6299, image: "/images/Mens/24.png" },
+    ],
+  },
+]
+
 export default function MensCollectionPage() {
   const [isVisible, setIsVisible] = useState(false)
+
+  const [activeFestival, setActiveFestival] = useState(0)
+  const [direction, setDirection] = useState(0)
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+  }
+
+  const swipeConfidenceThreshold = 10000
+  const swipePower = (offset: { x: number }, velocity: { x: number }) => {
+    return Math.abs(offset.x) * velocity.x
+  }
+
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection)
+    setActiveFestival((prev) => {
+      const next = prev + newDirection
+      if (next < 0) return festivalsData.length - 1
+      if (next >= festivalsData.length) return 0
+      return next
+    })
+  }
+
+  const currentFestival = festivalsData[activeFestival]
 
   useEffect(() => {
     setIsVisible(true)
@@ -158,7 +260,7 @@ export default function MensCollectionPage() {
                   transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
                   className="relative w-[400px] h-[500px] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden border-8 border-accent/30 shadow-2xl"
                 >
-                  <img src="/indian-man-in-traditional-kurta-ethnic-wear-fashio.jpg" alt="Men's Fashion" className="w-full h-full object-cover" />
+                  <img src="/images/Mens/11.png" alt="Men's Fashion" className="w-full h-full object-cover" />
                 </motion.div>
 
                 {/* Decorative circles */}
@@ -194,13 +296,132 @@ export default function MensCollectionPage() {
         </div>
 
         {/* Back button */}
-        <Link
-          href="/"
-          className="absolute top-8 left-8 z-20 flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
-        >
-          <ChevronLeft className="w-6 h-6" />
-          <span className="font-semibold">Back to Home</span>
-        </Link>
+       
+      </section>
+
+      {/* Festive Collection Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-3 mb-4">
+              <Sparkles className="w-8 h-8 text-yellow-300" />
+              <h2 className="font-serif text-5xl md:text-6xl font-bold text-foreground">Festive Collection</h2>
+              <Sparkles className="w-8 h-8 text-yellow-300" />
+            </div>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Celebrate India's vibrant festivals in style with our exclusive collections
+            </p>
+          </motion.div>
+
+          <div className="flex justify-center gap-4 mb-6 flex-wrap">
+            {festivalsData.map((festival, index) => (
+              <motion.button
+                key={festival.id}
+                onClick={() => {
+                  setDirection(index > activeFestival ? 1 : -1)
+                  setActiveFestival(index)
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-8 py-3 rounded-2xl font-semibold text-lg transition-all duration-300 border ${
+                  activeFestival === index
+                    ? "bg-white text-foreground border-transparent shadow-md"
+                    : "bg-white text-foreground hover:shadow border-border"
+                }`}
+              >
+                {festival.name.split(" ")[0]}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Deity image below tabs for active festival */}
+          <div className="flex justify-center mb-10">
+            <img
+              src={currentFestival.deityImage}
+              alt={`${currentFestival.name} deity`}
+              className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-full shadow-2xl border-4 border-white"
+            />
+          </div>
+
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={activeFestival}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = Math.abs(offset.x) * velocity.x
+                if (swipe < -swipeConfidenceThreshold) {
+                  paginate(1)
+                } else if (swipe > swipeConfidenceThreshold) {
+                  paginate(-1)
+                }
+              }}
+              className="space-y-12"
+            >
+              <div className="text-center space-y-4">
+                <h3 className={`font-serif text-4xl md:text-5xl font-bold ${currentFestival.accentColor}`}>
+                  {currentFestival.theme}
+                </h3>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{currentFestival.description}</p>
+              </div>
+
+              <div className="relative">
+                <div className="overflow-hidden px-4">
+                  <motion.div className="flex gap-6 pb-8" initial={{ x: 0 }}>
+                    {currentFestival.products.map((product, index) => (
+                      <motion.div key={product.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} className="flex-shrink-0 w-64">
+                        <div className="group relative bg-white rounded-3xl overflow-hidden border border-border hover:border-accent/40 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                          <div className="relative h-80 overflow-hidden">
+                            <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                            
+                          </div>
+                          <div className="p-6 space-y-3">
+                            <h4 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">{product.name}</h4>
+                            <div className="flex items-center justify-between">
+                              {/* <span className="text-2xl font-bold text-accent">₹{product.price.toLocaleString()}</span> */}
+                              {/* <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="bg-foreground text-background px-4 py-2 rounded-full text-sm font-semibold hover:bg-accent transition-colors">
+                                View
+                              </motion.button> */}
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                <button onClick={() => paginate(-1)} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md p-4 rounded-full transition-all duration-300 hover:scale-110">
+                  <ChevronLeft className="w-6 h-6 text-white" />
+                </button>
+                <button onClick={() => paginate(1)} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md p-4 rounded-full transition-all duration-300 hover:scale-110">
+                  <ChevronRight className="w-6 h-6 text-white" />
+                </button>
+              </div>
+
+              <div className="text-center">
+                {/* <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-white text-gray-900 px-12 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-colors shadow-2xl">
+                  Shop {currentFestival.name}
+                </motion.button> */}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-300/20 rounded-full blur-xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/20 rounded-full blur-xl animate-pulse" />
+        </div>
       </section>
 
       <RangoliDivider />
@@ -291,7 +512,7 @@ export default function MensCollectionPage() {
               className="relative h-96 rounded-2xl overflow-hidden shadow-2xl"
             >
               <img
-                src="/traditional-indian-men-s-ethnic-wear-artisan-craft.jpg"
+                src="/images/Mens/11.png"
                 alt="Artisan crafting"
                 className="w-full h-full object-cover"
               />

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -25,13 +26,15 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt="Style Era Logo"
-            width={scrolled ? 50 : 60}
-            height={scrolled ? 50 : 60}
-            className="transition-all duration-300"
-          />
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Style Era Logo"
+              width={scrolled ? 50 : 60}
+              height={scrolled ? 50 : 60}
+              className="transition-all duration-300"
+            />
+          </Link>
         </div>
 
         <nav className="hidden md:flex items-center gap-8">

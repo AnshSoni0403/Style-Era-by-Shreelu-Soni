@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 interface Product {
   id: number
   name: string
-  price: number
+  price?: number
   image: string
   description: string
 }
@@ -102,9 +102,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.name}
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed">{product.description}</p>
-        <div className="flex items-center justify-center pt-2">
-          <span className="font-bold text-2xl text-primary">₹{product.price.toLocaleString()}</span>
-        </div>
+        {/* Price removed per current design requirements */}
       </div>
     </div>
   )

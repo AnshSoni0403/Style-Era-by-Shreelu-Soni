@@ -12,59 +12,59 @@ import Link from "next/link"
 const allMensProducts = [
   {
     id: 1,
-    name: "Royal Paisley Kurta",
-    price: 4999,
-    image: "/hand-painted-paisley-kurta-mens-traditional.jpg",
-    description: "Hand-painted paisley motifs on premium cotton",
+    name: "Khamma Ghani",
+    
+    image: "/images/Mens/9.png",
+    description: "Rajasthani Turban",
   },
   {
     id: 2,
     name: "Mandala Heritage Kurta",
-    price: 5499,
-    image: "/mandala-pattern-ethnic-kurta-mens.jpg",
+    
+    image: "/images/Mens/2.png",
     description: "Traditional mandala art with modern silhouette",
   },
   {
     id: 3,
-    name: "Ethnic Silk Jacket",
-    price: 7999,
-    image: "/luxury-ethnic-silk-jacket-mens.jpg",
-    description: "Premium silk with hand-embroidered details",
+    name: "Ethnic Art",
+    
+    image: "/images/Mens/10.png",
+    description: "Premium artistic work",
   },
   {
     id: 4,
-    name: "Classic Bandhgala",
-    price: 6499,
-    image: "/traditional-bandhgala-jacket-mens.jpg",
+    name: "Rath Yatra Special",
+    
+    image: "/images/Mens/3.png",
     description: "Timeless elegance with contemporary flair",
   },
   {
     id: 13,
-    name: "Embroidered Nehru Jacket",
-    price: 5999,
-    image: "/nehru-jacket-embroidered-mens-ethnic.jpg",
-    description: "Contemporary Nehru jacket with intricate embroidery",
+    name: "Rajasthani Portrait",
+    
+    image: "/images/Mens/5.png",
+    description: "Animated Men with Pichwwai Art.",
   },
   {
     id: 14,
-    name: "Silk Sherwani",
-    price: 12999,
-    image: "/silk-sherwani-mens-wedding-wear.jpg",
-    description: "Luxurious silk sherwani for grand occasions",
+    name: "Mirror Work",
+    
+    image: "/images/Mens/14.png",
+    description: "Luxurious Mirror Work for grand occasions",
   },
   {
     id: 15,
-    name: "Block Print Kurta",
-    price: 3999,
-    image: "/block-print-kurta-mens-casual.jpg",
-    description: "Hand-block printed cotton kurta for everyday elegance",
+    name: "Rangoli Pattern Kurta",
+   
+    image: "/images/Mens/17.png",
+    description: "Silk kurta golden rangoli pattern",
   },
   {
     id: 16,
-    name: "Velvet Indo-Western",
-    price: 8999,
-    image: "/velvet-indo-western-mens-party-wear.jpg",
-    description: "Plush velvet Indo-Western with modern cuts",
+    name: "Traditional Art",
+    
+    image: "/images/Mens/13.png",
+    description: "Plush traditional art on kurta with intricate detailing",
   },
 ]
 
@@ -424,7 +424,7 @@ export default function MensCollectionPage() {
         </div>
       </section>
 
-      <RangoliDivider />
+      {/* <RangoliDivider /> */}
 
       {/* Products Grid */}
       <section className="py-20 px-4">
@@ -512,7 +512,7 @@ export default function MensCollectionPage() {
               className="relative h-96 rounded-2xl overflow-hidden shadow-2xl"
             >
               <img
-                src="/images/Mens/11.png"
+                src="/images/Mens/20.png"
                 alt="Artisan crafting"
                 className="w-full h-full object-cover"
               />

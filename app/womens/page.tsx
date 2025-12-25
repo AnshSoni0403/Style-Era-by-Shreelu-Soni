@@ -7,65 +7,64 @@ import Footer from "@/components/footer"
 import ProductCard from "@/components/product-card"
 import RangoliDivider from "@/components/rangoli-divider"
 import RotatingRangoli from "@/components/rotating-rangoli"
-import { ChevronLeft, Sparkles, Heart, Brush } from "lucide-react"
-import Link from "next/link"
+import { Sparkles, Heart, Brush } from "lucide-react"
 
 const allWomensProducts = [
   {
     id: 5,
-    name: "Banarasi Silk Saree",
+    name: "Colourful Dye Odhani",
     price: 18999,
-    image: "/luxury-hand-painted-silk-saree-traditional.jpg",
-    description: "Pure Banarasi silk with intricate zari work and hand-painted borders",
+    image: "/images/Women's/9.png",
+    description: "Dyed at home to give traditional touch",
   },
   {
     id: 6,
-    name: "Bridal Lehenga Set",
+    name: "Janmashtmi Special Blouse",
     price: 24999,
-    image: "/floral-lehenga-ethnic-bridal-wear.jpg",
-    description: "Designer bridal lehenga with hand-embroidered floral motifs",
+    image: "/images/Women's/2.png",
+    description: "Feel lord Krishna with this special design",
   },
   {
     id: 7,
-    name: "Designer Anarkali Suit",
+    name: "Haldi Special Design",
     price: 12999,
-    image: "/anarkali-suit-designer-ethnic-wear.jpg",
-    description: "Floor-length Anarkali with hand-painted peacock designs",
+    image: "/images/Women's/11.png",
+    description: "Make your haldi ceremony memorable with this special design",
   },
   {
     id: 8,
-    name: "Palazzo Suit Set",
+    name: "Pichwai Paiting Saree",
     price: 8999,
-    image: "/palazzo-suit-hand-painted-traditional.jpg",
-    description: "Contemporary palazzo suit with traditional block print patterns",
+    image: "/images/Women's/12.png",
+    description: "Flute and Pichwai painting theme",
   },
   {
     id: 17,
-    name: "Kanjivaram Silk Saree",
+    name: "Floral Indo-Western Fusion",
     price: 22999,
-    image: "/banarasi-silk-saree-bridal-wear.jpg",
-    description: "Traditional Kanjivaram with temple border and rich pallu",
+    image: "/images/Women's/5.jpeg",
+    description: "Modern fusion piece with floral motifs",
   },
   {
     id: 18,
-    name: "Embroidered Sharara",
+    name: "Floral Sharara Gown",
     price: 15999,
-    image: "/sharara-set-embroidered-party-wear.jpg",
-    description: "Stunning sharara with mirror work and gota patti detailing",
+    image: "/images/Women's/6.jpeg",
+    description: "Elegant fusion gown with floral embroidery",
   },
   {
     id: 19,
-    name: "Chanderi Kurta Set",
+    name: "Navratri Choli",
     price: 6999,
-    image: "/chanderi-kurta-set-ethnic-casual.jpg",
-    description: "Lightweight chanderi with delicate hand-block prints",
+    image: "/images/Women's/7.jpeg",
+    description: "Perfect for festive occasions with traditional motifs",
   },
   {
     id: 20,
-    name: "Indo-Western Gown",
+    name: "Sangeet in Simple Choli Set",
     price: 11999,
-    image: "/georgette-gown-indo-western-fusion.jpg",
-    description: "Fusion georgette gown with contemporary silhouette",
+    image: "/images/Women's/8.jpeg",
+    description: "Perfect for sangeet occasions with elegant design and comfortable fit",
   },
 ]
 
@@ -106,7 +105,7 @@ export default function WomensCollectionPage() {
                     }}
                   >
                     <img
-                      src="/elegant-indian-woman-in-traditional-saree-ethnic-f.jpg"
+                      src="/images/Women's/1.png"
                       alt="Women's Ethnic Fashion"
                       className="w-full h-full object-cover opacity-95"
                     />
@@ -226,7 +225,191 @@ export default function WomensCollectionPage() {
           </div>
         </div>
 
-       
+        <div className="relative mt-32 lg:mt-20">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[600px]">
+              {/* Left Content */}
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6"
+              >
+                <div className="space-y-4">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, type: "spring" }}
+                    className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-2"
+                  >
+                    <span className="text-xs font-semibold tracking-widest">FEATURED COLLECTION</span>
+                  </motion.div>
+                  <h2 className="font-serif text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                    Elegance in Every <span className="text-primary">Drape</span>
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+                    Hand-painted saree crafted for festive grace with soft hues, intricate motifs, and timeless appeal.
+                    Every piece tells a story of tradition and artistry.
+                  </p>
+                </div>
+
+                <div className="space-y-4 pt-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-primary font-bold">✓</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Hand-Crafted Excellence</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Each design is meticulously hand-painted by skilled artisans
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-primary font-bold">✓</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Premium Fabrics</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Finest silk and cotton sourced from traditional mills
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-primary font-bold">✓</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Unique Pieces</h4>
+                      <p className="text-sm text-muted-foreground">
+                        No two garments are exactly alike, making you truly one-of-a-kind
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-8 px-8 py-4 bg-primary text-accent rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  Explore Collection
+                </motion.button>
+              </motion.div>
+
+              {/* Arrow */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="hidden lg:flex justify-center items-center absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10"
+              >
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" className="drop-shadow-lg">
+                  {/* Arrow curve */}
+                  <motion.path
+                    d="M 10 40 Q 40 20, 70 40"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    fill="none"
+                    strokeLinecap="round"
+                    className="text-primary"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.2, delay: 0.6 }}
+                  />
+                  {/* Arrow head */}
+                  <motion.g
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.2 }}
+                  >
+                    <path d="M 70 40 L 62 35 L 64 40 L 62 45 Z" fill="currentColor" className="text-primary" />
+                  </motion.g>
+                  {/* Decorative circles */}
+                  <motion.circle
+                    cx="10"
+                    cy="40"
+                    r="4"
+                    fill="currentColor"
+                    className="text-primary"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                  />
+                  <motion.circle
+                    cx="70"
+                    cy="40"
+                    r="4"
+                    fill="currentColor"
+                    className="text-primary"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.4 }}
+                  />
+                </svg>
+              </motion.div>
+
+              {/* Right Image */}
+              <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex justify-center lg:justify-end"
+              >
+                <div className="relative w-80 h-80 lg:w-96 lg:h-96 xl:w-[450px] xl:h-[450px]">
+                  {/* Decorative background shape */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      background: "linear-gradient(135deg, #FFB3D9 0%, #FFE5EC 100%)",
+                    }}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 0.6 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                  />
+
+                  {/* Image Circle */}
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="absolute inset-0 rounded-full overflow-hidden shadow-2xl ring-8 ring-background/50"
+                  >
+                    <img src="/images/Women's/4.png" alt="Featured Saree" className="w-full h-full object-cover" />
+                  </motion.div>
+
+                  {/* Floating accent card */}
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                    whileHover={{ y: -10 }}
+                    className="absolute -bottom-6 -left-6 bg-card rounded-2xl shadow-xl border border-muted p-5 w-72 backdrop-blur-sm"
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                        <Sparkles className="w-5 h-5 text-primary" />
+                      </div>
+                      <h4 className="font-serif text-lg font-bold text-foreground">Artisan Made</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Crafted with precision by master artisans preserving traditional techniques
+                    </p>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <RangoliDivider />
@@ -240,10 +423,10 @@ export default function WomensCollectionPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-5xl font-bold text-foreground mb-4">Our Collections</h2>
+            {/* <h2 className="font-serif text-5xl font-bold text-foreground mb-4">Our Collections</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Explore our handpicked selection of traditional and contemporary ethnic wear
-            </p>
+            </p> */}
             <div className="w-24 h-1 bg-accent mx-auto mt-6" />
           </motion.div>
 

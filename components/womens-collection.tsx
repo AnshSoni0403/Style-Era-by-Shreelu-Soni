@@ -6,31 +6,31 @@ import ProductCard from "./product-card"
 const womensProducts = [
   {
     id: 5,
-    name: "Silk Saree Paradise",
+    name: "Janmashtmi Special Blouse",
     price: 12999,
-    image: "/luxury-hand-painted-silk-saree-traditional.jpg",
-    description: "Exquisite hand-painted silk with golden borders",
+    image: "/images/Women's/2.png",
+    description: "Feel lord Krishna with this special design",
   },
   {
     id: 6,
-    name: "Floral Lehenga Set",
+    name: "Designer Lehenga Set",
     price: 15999,
-    image: "/floral-lehenga-ethnic-bridal-wear.jpg",
-    description: "Traditional lehenga with hand-painted florals",
+    image: "/images/Women's/10.png",
+    description: "Traditional lehenga with work",
   },
   {
     id: 7,
-    name: "Designer Anarkali",
+    name: "Simple yet elegant Choli",
     price: 8999,
-    image: "/anarkali-suit-designer-ethnic-wear.jpg",
-    description: "Elegant Anarkali with intricate artwork",
+    image: "/images/Women's/3.png",
+    description: "Elegant Lahenga with intricate artwork",
   },
   {
     id: 8,
-    name: "Heritage Palazzo Suit",
+    name: "Floral Modern Set",
     price: 6999,
-    image: "/palazzo-suit-hand-painted-traditional.jpg",
-    description: "Contemporary palazzo with traditional motifs",
+    image: "/images/Women's/22.jpeg",
+    description: "Modern interpretation of traditional floral patterns",
   },
 ]
 
@@ -81,6 +81,8 @@ export default function WomensCollection() {
             Flowy sarees, elegant lehengas, and hand-painted suits that celebrate femininity and tradition
           </p>
         </div>
+
+       
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {womensProducts.map((product, index) => (
